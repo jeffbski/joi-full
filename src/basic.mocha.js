@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('expect');
 const Joi = require('../'); // require('joi-full') // includes extenstions
 
