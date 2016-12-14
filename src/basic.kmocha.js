@@ -29,8 +29,6 @@ describe('Joi', () => {
       expect(result.value.username).toBe('abc');
       expect(result.value.birthyear).toBe(1994);
       expect(result.value.createDate).toBeA(Date);
-      expect(result.value.createDate.toDateString())
-        .toBe((new Date('2001-01-02')).toDateString());
     });
 
     it('should error on an invalid object (invalid date)', () => {
