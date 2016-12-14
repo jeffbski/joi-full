@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "joi-full": "10.0.5beta",
+    "joi-full": "10.0.5-beta1",
     "moment": "^2.17.1"
   }
 }

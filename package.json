@@ -1,12 +1,13 @@
 {
   "name": "joi-full",
-  "version": "10.0.5-beta",
+  "version": "10.0.5-beta1",
   "description": "joi object schema validation with extensions - universal/isomorphic works with Node.js and is bundled for the browser",
   "main": "src/index.js",
   "browser": {
     "main": "./dist/joi-full.js"
   },
   "scripts": {
+    "test": "mocha src/*.mocha.js",
     "prepublish": "npm run build-webpack",
     "build-webpack": "webpack && uglifyjs dist/joi-full.js -c warnings=false -m | ntee dist/joi-full.min.js | ngzip > dist/joi-full.min.js.gz"
   },
@@ -46,7 +47,9 @@
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-plugin-transform-proto-to-assign": "^6.9.0",
     "babel-preset-es2015": "^6.1.18",
+    "expect": "^1.20.2",
     "json-loader": "^0.5.4",
+    "mocha": "^3.2.0",
     "moment": "2.x.x",
     "ngzip": "^1.1.3",
     "ntee": "^1.1.4",
