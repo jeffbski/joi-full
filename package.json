@@ -1,13 +1,22 @@
 {
   "name": "joi-full",
-  "version": "10.0.5-beta3",
+  "version": "10.0.5-beta4",
   "description": "joi object schema validation with extensions - universal/isomorphic works with Node.js and is bundled for the browser",
   "main": "src/index.js",
   "browser": {
     "main": "./dist/joi-full.js"
   },
   "browserify": {
-    "transform": [["babelify", { "presets": ["es2015"] }]]
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
   },
   "scripts": {
     "test": "run-s test:*",
