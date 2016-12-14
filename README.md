@@ -2,6 +2,8 @@
 
 joi object schema validation with extensions as universal/isomorphic libarary for Node.js and bundled for the browser (babelified and bundled)
 
+[![Build Status](https://secure.travis-ci.org/jeffbski/joi-full.png?branch=master)](http://travis-ci.org/jeffbski/joi-full)
+
 ## Why?
 
 There has been some difficulty in getting a reasonable version of Joi packaged for the browser both due to the size of bundling and with Joi 7.x.x switching to ES6 modules has added additional challenges.
