@@ -1,6 +1,6 @@
 {
   "name": "joi-full",
-  "version": "10.0.5-beta6",
+  "version": "10.0.5-beta7",
   "description": "joi object schema validation with extensions - universal/isomorphic works with Node.js and is bundled for the browser",
   "main": "src/index.js",
   "browser": {
