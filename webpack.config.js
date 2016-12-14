@@ -28,6 +28,7 @@ module.exports = {
     ]
   },
   node: {
+    global: false,
     crypto: 'empty',
     net: 'empty',
     dns: 'empty'

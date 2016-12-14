@@ -34,11 +34,13 @@ The `joi-full` package.json includes the `browser` field which directs browser b
 
 #### Webpack
 
+An example of using `joi-full` with webpack is in `examples/webpack-basic`
+
 ```bash
 npm install joi-full moment
 ```
 
-Add the following to your app's webpack.config.js to enable the package aliasing we configured in package.json
+You might need to add the following to your app's webpack.config.js to enable the package aliasing we configured in package.json
 
 ```javascript
   resolve: {
@@ -57,6 +59,31 @@ So in your code, you just require `joi-full`
 var Joi = require('joi-full'); // includes joi-date-extensions
 ```
 
+#### Browserify
+
+You can also use browserify to use joi-full. It should pick up the proper bundled file when it reads joi-full/package.json browser field.
+
+```bash
+npm install joi-full moment
+```
+
+There is an example in `examples/browserify-basic` but you won't need to set the browser field in package.json if you have properly installed from npm.
+
+## Examples
+
+There are three examples:
+
+ - examples/browserify-basic - uses browserify to bundle joi-full with our src for browser
+ - examples/node-basic - use joi-full with node.js
+ - examples/webpack-basic - use webpack to bundle joi-full with our src for the browser
+
+To use any of them:
+
+```bash
+cd examples/___
+npm install
+npm start
+```
 
 ## Development
 
