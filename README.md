@@ -24,7 +24,7 @@ npm install joi-full moment
 var Joi = require('joi-full'); // includes joi-date-extensions
 ```
 
-Note: if you are using webpack with a babel loader you may need to exclude `joi-browser` from being run through babel again.
+Note: if you are using webpack with a babel loader you may need to exclude `joi-full` from being run through babel again.
 
 In your webpack.config.js loaders, add an `exclude: [ /joi-full/ ]`
 
