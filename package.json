@@ -7,7 +7,9 @@
     "main": "./dist/joi-full.js"
   },
   "scripts": {
-    "test": "mocha src/*.mocha.js",
+    "test": "run-s test:*",
+    "test:karma": "karma start --single-run",
+    "test:mocha": "mocha src/*.mocha.js",
     "prepublish": "npm run build-webpack",
     "build-webpack": "webpack && uglifyjs dist/joi-full.js -c warnings=false -m | ntee dist/joi-full.min.js | ngzip > dist/joi-full.min.js.gz"
   },
@@ -47,12 +49,21 @@
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-plugin-transform-proto-to-assign": "^6.9.0",
     "babel-preset-es2015": "^6.1.18",
+    "core-js": "^2.4.1",
     "expect": "^1.20.2",
     "json-loader": "^0.5.4",
+    "karma": "^1.2.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.1.0",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-phantomjs-shim": "^1.4.0",
+    "karma-webpack": "^1.8.0",
     "mocha": "^3.2.0",
     "moment": "2.x.x",
     "ngzip": "^1.1.3",
+    "npm-run-all": "^3.0.0",
     "ntee": "^1.1.4",
+    "phantomjs-prebuilt": "^2.1.12",
     "uglify-js": "^2.6.1",
     "webpack": "^1.12.9"
   },
