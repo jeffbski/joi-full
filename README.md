@@ -1,71 +1,41 @@
-# joi-browser
+# joi-full
 
-joi object schema validation bundled for the browser (babelified and bundled)
+joi object schema validation with extensions as universal/isomorphic libarary for Node.js and bundled for the browser (babelified and bundled)
 
 ## Why?
 
-There has been some difficulty in getting a reasonable version of Joi packaged for the browser both due to the size of bundling and now with 7.x.x the switch to ES6 modules has added additional challenges.
+There has been some difficulty in getting a reasonable version of Joi packaged for the browser both due to the size of bundling and with Joi 7.x.x switching to ES6 modules has added additional challenges.
 
-The community is trying to rally to get the Joi package itself setup so that we can generate bundles directly from it, but until this is done, this package will allow you to build a bundled version.
+I made a browser build of joi available at [joi-browser](https://github.com/jeffbski/joi-browser), but Joi@10 split date functionality into its own package `joi-date-extensions`, so I also created `joi-date-extensions-browser` but currently are having trouble when combining `joi-browser` and `joi-date-extensions` together.
 
-This package can be used included in other builds (browserify or webpack) or used on its own.
+In the meantime, this build was created which includes joi and joi-date-extensions and works on Node.js and provides a bundle for brower builds.
 
-The default version exposed by package.json is the babelified unminified bundle. It has been transpiled to ES5. Since I expected to primarily be using this inside of another bundle. However the minified version is also built on install as dist/bundle.min.js.
 
 ## Usage
 
+Moment is a peer dependency so it needs to be installed as well.
 
 ```bash
-npm install joi-browser
+npm install joi-full moment
 ```
 
 ```javascript
-var Joi = require('joi-browser');
+var Joi = require('joi-full'); // includes joi-date-extensions
 ```
 
 Note: if you are using webpack with a babel loader you may need to exclude `joi-browser` from being run through babel again.
 
-In your webpack.config.js loaders, add an `exclude: [ /joi-browser/ ]`
-
+In your webpack.config.js loaders, add an `exclude: [ /joi-full/ ]`
 
 ### Isomorphic / Universal JS - using in browser and on server (Node.js)
 
-If you want to use `joi` with Node.js and `joi-browser` for browser use then you can follow one of these recipies.
+The `joi-full` package.json includes the `browser` field which directs browser builds to use to the prebuilt `dist/joi-full.js`
 
-#### Browserify
-
-```bash
-npm install joi-browser
-npm install joi
-```
-
-Add the following to your app's package.json which will tell browserify to use joi-browser instead of joi when bundling for the browser.
-
-```json
-  "browser": {
-    "joi": "joi-browser"
-  },
-```
-
-So in your code, you just require `joi` and browserify will automatically switch it with joi-browser when it bundles.
-
-```javascript
-var Joi = require('joi');
-```
 
 #### Webpack
 
 ```bash
-npm install joi-browser
-npm install joi
-```
-
-Add the following to your app's package.json which will tell webpack to use joi-browser instead of joi when bundling for the browser.
-
-```json
-  "browser": {
-    "joi": "joi-browser"
-  },
+npm install joi-full moment
 ```
 
 Add the following to your app's webpack.config.js to enable the package aliasing we configured in package.json
@@ -76,35 +46,26 @@ Add the following to your app's webpack.config.js to enable the package aliasing
   }
 ```
 
-Note: if you are using webpack with a babel loader you may need to exclude `joi-browser` from being run through babel again.
+Note: if you are using webpack with a babel loader you may need to exclude `joi-full` from being run through babel again.
 
-In your webpack.config.js loaders, add an `exclude: [ /joi-browser/ ]`.
+In your webpack.config.js loaders, add an `exclude: [ /joi-full/ ]`.
 
 
-
-So in your code, you just require `joi` and webpack will automatically switch it with joi-browser when it bundles.
+So in your code, you just require `joi-full`
 
 ```javascript
-var Joi = require('joi');
+var Joi = require('joi-full'); // includes joi-date-extensions
 ```
 
 
 ## Development
 
 ```bash
-# builds dist/joi-browser.js and dist/joi-browser.min.js
+# builds dist/joi-full.js and dist/joi-full.min.js
 npm install
 npm run prepublish # when you want to rebuild
 ```
 
-
-## Upgrade notes
-
-See the [github releases for notes](https://github.com/jeffbski/joi-browser/releases). A few notable upgrades are:
-
- - 10.0.5 - Joi split momentjs date format functionality into `joi-date-extensions`. The equivalent version for the browser is `joi-date-extensions-browser`. If you install it you will need to also install its peer dependency momentjs. See [joi-date-extensions-browser repo](https://github.com/jeffbski/joi-date-extensions-browser)
-
- - 7.1.0 - excludes `moment` from the `joi-browser` bundle, so it must be imported into your project from elsewhere. Bundle was renamed to `dist/joi-browser.js` and `dist/joi-browser.min.js`
 
 ## Discussion
 
@@ -112,18 +73,4 @@ The main discussion about these difficulties has been in this github issue.
 
 https://github.com/hapijs/joi/issues/528#issuecomment-128532221
 
-As for the bundling size issues that were summarized in the issue, the package size can be reduced by eliminating unnecessary code.
-
-crypto is the first thing that can be safely eliminated since this functionaility in Joi would not be used by the browser. That is the biggest win dropping things to ~45KB gzipped without sacrificing any actual functionality.
-
-If your use case doesn't require moment, isemail, and buffer, you can stub those packages out and get a bundle in the neighborhood of ~23KB gzipped.
-
-I have chosen to make the default bundle only exclude crypto so that it would remain fully compatible, but you could fork this and create a smaller version by excluding things you don't need.
-
-| Config | Joi and dependencies gzipped |
-|----------|------------------------------------------|
-| Full Joi | 126KB |
-| w/o crypto (in Hoek) | 44KB |
-| w/o crypto (in Hoek), moment | 31KB |
-| w/o crypto (in Hoek), moment, isemail | 29KB |
-| w/o crypto (in Hoek), moment, isemail, buffer | 23KB |
+See [joi-browser](https://github.com/jeffbski/joi-browser) for more details on the bundling issues.

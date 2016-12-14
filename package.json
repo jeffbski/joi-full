@@ -6,6 +6,9 @@
   "browser": {
     "main": "./dist/joi-full.js"
   },
+  "browserify": {
+    "transform": [["babelify", { "presets": ["es2015"] }]]
+  },
   "scripts": {
     "test": "run-s test:*",
     "test:karma": "karma start --single-run",
