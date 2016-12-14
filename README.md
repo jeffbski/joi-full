@@ -67,7 +67,13 @@ You can also use browserify to use joi-full. It should pick up the proper bundle
 npm install joi-full moment
 ```
 
-There is an example in `examples/browserify-basic` but you won't need to set the browser field in package.json if you have properly installed from npm.
+So in your code, you just require `joi-full`
+
+```javascript
+var Joi = require('joi-full'); // includes joi-date-extensions
+```
+
+There is an example in `examples/browserify-basic`.
 
 ## Examples
 
