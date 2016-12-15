@@ -1,6 +1,6 @@
 # joi-full
 
-joi object schema validation with extensions as universal/isomorphic libarary for Node.js and bundled for the browser (babelified and bundled)
+joi object schema validation with extensions as universal/isomorphic libarary for Node.js and bundled for the browser (babelified and bundled). Includes joi-date-extensions.
 
 [![Build Status](https://secure.travis-ci.org/jeffbski/joi-full.png?branch=master)](http://travis-ci.org/jeffbski/joi-full) [![NPM Version Badge](https://img.shields.io/npm/v/joi-full.svg)](https://www.npmjs.com/package/joi-full)
 ## Why?
