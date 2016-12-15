@@ -16,6 +16,7 @@ var config = {
   },
   module: {
     loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
       { test: /\.json$/, loaders: ['json-loader'] }
     ]
   },
@@ -27,7 +28,8 @@ var config = {
   },
   resolve: {
     root: __dirname,
-    extensions: ['', '.json', '.js']
+    extensions: ['', '.json', '.js'],
+    packageAlias: 'browser' // read aliases from package.json brower field
   },
   plugins: [
     new BrowserSyncPlugin(browserSyncConfig),
