@@ -5,7 +5,7 @@ joi object schema validation with extensions as universal/isomorphic libarary fo
 [![Build Status](https://secure.travis-ci.org/jeffbski/joi-full.png?branch=master)](http://travis-ci.org/jeffbski/joi-full) [![NPM Version Badge](https://img.shields.io/npm/v/joi-full.svg)](https://www.npmjs.com/package/joi-full)
 ## Why?
 
-There has been some difficulty in getting a reasonable version of Joi packaged for the browser both due to the size of bundling and with Joi 7.x.x switching to ES6 modules has added additional challenges.
+There has been some difficulty in getting a reasonable version of [Joi](https://github.com/hapijs/joi) packaged for the browser both due to the size of bundling and with Joi 7.x.x switching to ES6 modules has added additional challenges.
 
 I made a browser build of joi available at [joi-browser](https://github.com/jeffbski/joi-browser), but Joi@10 split date functionality into its own package `joi-date-extensions`, so I also created `joi-date-extensions-browser` but currently are having trouble when combining `joi-browser` and `joi-date-extensions` together.
 
@@ -108,3 +108,8 @@ The main discussion about these difficulties has been in this github issue.
 https://github.com/hapijs/joi/issues/528#issuecomment-128532221
 
 See [joi-browser](https://github.com/jeffbski/joi-browser) for more details on the bundling issues.
+
+Since this package is simply a bundling of the original joi and joi-date-extensions, please discuss defects or suggestions for those packages at:
+
+ - [joi](https://github.com/hapijs/joi)
+ - [joi-date-extensions](https://github.com/hapijs/joi-date-extensions)
